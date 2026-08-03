@@ -90,9 +90,9 @@ function renderizarMenu(categoria) {
         cantTemporales[plato.id] = 1; 
         
         const html = `
-            <div class="bg-white dark:bg-darker border border-gray-200 dark:border-white/5 rounded-xl overflow-hidden shadow-lg flex flex-col group h-full transition-colors duration-300">
+            <div class="bg-white dark:bg-dark border border-gray-200 dark:border-metal-dark/30 rounded-xl overflow-hidden shadow-lg flex flex-col group h-full transition-colors duration-300">
                 
-                <div class="aspect-[4/3] w-full relative overflow-hidden bg-gray-100 dark:bg-dark flex items-center justify-center">
+                <div class="aspect-[4/3] w-full relative overflow-hidden bg-gray-100 dark:bg-darker flex items-center justify-center">
                     <img 
                         src="${plato.img}" 
                         onerror="this.onerror=null;this.src='${IMG_FALLBACK}';" 
@@ -109,17 +109,17 @@ function renderizarMenu(categoria) {
                     <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-1">${plato.desc}</p>
                     
                     <div class="mt-auto space-y-4">
-                        <div class="flex items-center justify-between bg-gray-50 dark:bg-dark rounded-lg border border-gray-200 dark:border-white/10 p-1">
+                        <div class="flex items-center justify-between bg-gray-50 dark:bg-darker rounded-lg border border-gray-200 dark:border-white/10 p-1">
                             <button type="button" onclick="cambiarTemp('${plato.id}', -1)" class="w-12 h-10 flex items-center justify-center text-gray-500 dark:text-gray-300 bg-white dark:bg-white/5 rounded shadow-sm hover:bg-gray-100 dark:hover:bg-white/10 transition">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
                             </button>
                             <span id="tmp-${plato.id}" class="text-lg font-semibold w-8 text-center text-gray-900 dark:text-white">1</span>
-                            <button type="button" onclick="cambiarTemp('${plato.id}', 1)" class="w-12 h-10 flex items-center justify-center text-metal bg-white dark:bg-white/5 rounded shadow-sm hover:bg-gray-100 dark:hover:bg-white/10 transition">
+                            <button type="button" onclick="cambiarTemp('${plato.id}', 1)" class="w-12 h-10 flex items-center justify-center text-metal dark:text-metal-light bg-white dark:bg-white/5 rounded shadow-sm hover:bg-gray-100 dark:hover:bg-white/10 transition">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                             </button>
                         </div>
                         
-                        <button type="button" onclick="anexar('${categoria}', '${plato.id}')" class="w-full bg-metal-ice/30 dark:bg-metal/10 border border-metal text-metal py-3.5 rounded-lg font-medium hover:bg-metal hover:text-white dark:hover:text-white transition shadow-sm">
+                        <button type="button" onclick="anexar('${categoria}', '${plato.id}')" class="w-full bg-metal-ice/30 dark:bg-metal/10 border border-metal text-metal dark:text-metal-light py-3.5 rounded-lg font-medium hover:bg-metal hover:text-white dark:hover:bg-metal dark:hover:text-white transition shadow-sm">
                             Anexar a la Proforma
                         </button>
                     </div>

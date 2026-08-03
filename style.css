@@ -16,20 +16,20 @@ body {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Light */
+    background: #f1f1f1; 
 }
 .dark ::-webkit-scrollbar-track {
-    background: #050505; /* Dark */
+    background: #0f172a; /* Slate 900 */
 }
 ::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
+    background: #a0c5f7; /* metal-light */
     border-radius: 4px;
 }
 .dark ::-webkit-scrollbar-thumb {
-    background: #2a2a2a;
+    background: #3e5f8a; /* metal-dark */
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #5783bc; /* Azul metálico */
+    background: #5783bc; /* metal principal */
 }
 
 /* Custom Scrollbar Sidebar */
@@ -40,13 +40,14 @@ body {
     background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #a0c5f7; /* Baby Blue Eyes */
+    background: #cadffb; /* metal-ice */
     border-radius: 10px;
 }
 .dark .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #3e5f8a; /* Delft */
+    background: #3e5f8a; 
 }
 
+/* Esconder spinners de inputs numéricos nativos */
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
