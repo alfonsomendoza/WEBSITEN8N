@@ -1,5 +1,5 @@
 /* ==========================================================
-   ESTILOS COMPLEMENTARIOS (Soporte Modo Claro / Oscuro)
+   ESTILOS COMPLEMENTARIOS Y MODO OSCURO (styles.css)
    ========================================================== */
 
 body {
@@ -11,15 +11,15 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Scrollbar Global */
+/* Scrollbar Base */
 ::-webkit-scrollbar {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Claro */
+    background: #f1f1f1; /* Light */
 }
 .dark ::-webkit-scrollbar-track {
-    background: #050505; /* Oscuro */
+    background: #050505; /* Dark */
 }
 ::-webkit-scrollbar-thumb {
     background: #c1c1c1;
@@ -29,10 +29,10 @@ body {
     background: #2a2a2a;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #D4AF37;
+    background: #5783bc; /* Azul metálico */
 }
 
-/* Scrollbar Sidebar (Más discreto) */
+/* Custom Scrollbar Sidebar */
 .custom-scrollbar::-webkit-scrollbar {
     width: 5px;
 }
@@ -40,21 +40,20 @@ body {
     background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #d1d5db; /* Claro */
+    background: #a0c5f7; /* Baby Blue Eyes */
     border-radius: 10px;
 }
 .dark .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #444; /* Oscuro */
+    background: #3e5f8a; /* Delft */
 }
 
-/* Ocultar flechas nativas en inputs de tipo número */
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
     margin: 0; 
 }
 
-/* Inversión de color del calendario (solo en modo oscuro) */
+/* Inversión del calendario SOLO en modo oscuro */
 .dark .dark-calendar::-webkit-calendar-picker-indicator {
     filter: invert(1);
     opacity: 0.7;
@@ -63,9 +62,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
-/* Flecha personalizada para el Dropdown Select */
+/* Flecha Select con color azul metálico (#5783bc) */
 select {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23D4AF37' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%235783bc' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 1rem center;
     background-repeat: no-repeat;
     background-size: 1.5em 1.5em;
