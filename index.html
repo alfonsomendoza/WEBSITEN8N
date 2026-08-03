@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth dark"> <!-- Iniciamos en modo oscuro por defecto -->
+<html lang="es" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class', // Habilitamos el modo oscuro manual
+            darkMode: 'class', /* Habilita el control manual del Modo Oscuro */
             theme: {
                 extend: {
                     colors: {
@@ -34,7 +34,7 @@
 </head>
 <body class="font-poppins bg-gray-50 dark:bg-darker text-gray-800 dark:text-gray-100 antialiased overflow-x-hidden transition-colors duration-300">
 
-    <!-- ================= CABECERA (HEADER) ================= -->
+    <!-- ================= CABECERA ================= -->
     <header class="fixed w-full z-40 bg-white/90 dark:bg-darker/95 backdrop-blur-md border-b border-gray-200 dark:border-white/10 transition-all duration-300 shadow-sm dark:shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
@@ -58,17 +58,17 @@
                     <a href="#menu-catalogo" class="text-gray-600 dark:text-gray-300 hover:text-gold dark:hover:text-gold transition font-medium">Cotizar Menú</a>
                 </nav>
 
-                <!-- Botones Acciones (Tema + Carrito) -->
-                <div class="flex items-center ml-2 md:ml-6 gap-2 md:gap-4">
-                    <!-- Botón Modo Oscuro/Claro -->
-                    <button id="btn-theme-toggle" class="p-2 rounded-full text-gray-500 dark:text-gold hover:bg-gray-200 dark:hover:bg-white/10 transition">
-                        <!-- Icono Sol (Oculto en Dark Mode) -->
+                <!-- Botones Acciones -->
+                <div class="flex items-center ml-2 md:ml-6 gap-2 sm:gap-4">
+                    
+                    <!-- Botón Light/Dark Mode -->
+                    <button id="btn-theme-toggle" class="p-2 rounded-full text-gray-500 dark:text-gold hover:bg-gray-200 dark:hover:bg-white/10 transition focus:outline-none">
                         <svg id="icon-sun" class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        <!-- Icono Luna (Oculto en Light Mode) -->
                         <svg id="icon-moon" class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                     </button>
 
-                    <button id="btn-cart-open" class="flex items-center gap-2 bg-gold/10 border border-gold text-gold px-3 md:px-5 py-2 rounded-lg hover:bg-gold hover:text-white dark:hover:text-darker transition shadow-md">
+                    <!-- Botón Carrito -->
+                    <button id="btn-cart-open" class="flex items-center gap-2 bg-gold/10 border border-gold text-gold px-3 md:px-5 py-2 rounded-lg hover:bg-gold hover:text-white dark:hover:text-darker transition duration-300 shadow-[0_0_15px_rgba(212,175,55,0.2)] focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
                         <span class="hidden sm:inline font-medium">Cotización:</span>
                         <span id="cart-count" class="font-bold text-sm bg-gold text-white dark:text-darker sm:bg-transparent sm:text-gold rounded-full px-2 py-0.5 sm:p-0">0</span>
@@ -77,7 +77,7 @@
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-dark border-b border-gray-200 dark:border-white/10 shadow-xl">
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-dark border-b border-gray-200 dark:border-white/10 shadow-xl transition-colors duration-300">
             <div class="px-4 pt-2 pb-4 space-y-2">
                 <a href="#inicio" class="block px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-gold rounded-md text-center border-b border-gray-100 dark:border-white/5">Inicio</a>
                 <a href="#nosotros" class="block px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-gold rounded-md text-center border-b border-gray-100 dark:border-white/5">Sobre Nosotros</a>
@@ -91,7 +91,7 @@
     <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center text-center pt-20">
         <div class="absolute inset-0 bg-gray-900 dark:bg-dark">
             <img src="hero-bg.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544025162-831514bc501e?q=80&w=2000&auto=format&fit=crop';" alt="Fondo Hero" class="w-full h-full object-cover opacity-30 dark:opacity-40">
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-50 via-gray-900/60 to-gray-900/90 dark:from-darker dark:via-darker/60 dark:to-darker/90"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-50 via-gray-900/60 to-gray-900/90 dark:from-darker dark:via-darker/60 dark:to-darker/90 transition-colors duration-300"></div>
         </div>
         
         <div class="relative z-10 px-4 w-full max-w-4xl mx-auto flex flex-col items-center">
@@ -108,7 +108,7 @@
         </div>
     </section>
 
-    <!-- ================= 3. SOBRE NOSOTROS ================= -->
+    <!-- ================= 3. SOBRE NOSOTROS & INSTALACIONES ================= -->
     <section id="nosotros" class="py-16 md:py-24 bg-gray-50 dark:bg-darker transition-colors duration-300">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="font-vibes text-4xl md:text-5xl text-gold mb-6">Nuestra Tradición</h2>
@@ -119,7 +119,6 @@
         </div>
     </section>
 
-    <!-- Galería Local -->
     <section id="instalaciones" class="py-16 bg-white dark:bg-dark border-y border-gray-200 dark:border-white/5 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -129,16 +128,16 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="overflow-hidden rounded-xl shadow-xl dark:shadow-2xl border border-gray-200 dark:border-white/10 group bg-gray-100 dark:bg-darker aspect-video relative">
-                    <img src="local1.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800&auto=format&fit=crop';" alt="Local 1" class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition duration-500">
+                    <img src="local1.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800&auto=format&fit=crop';" alt="Restaurante El Lobito - Local 1" class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition duration-500">
                 </div>
                 <div class="overflow-hidden rounded-xl shadow-xl dark:shadow-2xl border border-gray-200 dark:border-white/10 group bg-gray-100 dark:bg-darker aspect-video relative">
-                    <img src="local2.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=800&auto=format&fit=crop';" alt="Local 2" class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition duration-500">
+                    <img src="local2.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=800&auto=format&fit=crop';" alt="Restaurante El Lobito - Local 2" class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition duration-500">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= 4. CATÁLOGO ================= -->
+    <!-- ================= 4. CATÁLOGO DE COMIDA ================= -->
     <section id="menu-catalogo" class="py-16 md:py-24 bg-gray-50 dark:bg-darker transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
@@ -146,11 +145,10 @@
                 <p class="text-gray-600 dark:text-gray-400">Arme su proforma seleccionando los platillos de nuestro catálogo.</p>
             </div>
 
-            <!-- Dropdown -->
             <div class="max-w-md mx-auto mb-12">
-                <label for="menu-dropdown" class="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-2 uppercase tracking-wide text-center">Selecciona el Tipo de Menú / Servicio</label>
+                <label for="menu-dropdown" class="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide text-center">Selecciona el Tipo de Menú / Servicio</label>
                 <div class="relative">
-                    <select id="menu-dropdown" class="block w-full pl-4 pr-10 py-4 text-base md:text-lg bg-white dark:bg-dark border border-gold/50 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-gold appearance-none cursor-pointer shadow-lg font-medium text-center transition-colors">
+                    <select id="menu-dropdown" class="block w-full pl-4 pr-10 py-4 text-base md:text-lg bg-white dark:bg-dark border border-gold/50 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-gold appearance-none cursor-pointer shadow-lg font-medium text-center transition-colors duration-300">
                         <option value="carnes">Especiales de Carnes</option>
                         <option value="mariscos">Mariscos y Marisconas</option>
                         <option value="antojitos">Antojitos e Individuales</option>
@@ -160,29 +158,31 @@
             </div>
 
             <div id="platos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Tarjetas inyectadas por JS -->
+                <!-- Se inyectan las tarjetas desde app.js -->
             </div>
         </div>
     </section>
 
     <!-- ================= 5. SIDEBAR / MODAL ================= -->
     <div id="sidebar-container" class="fixed inset-0 z-50 invisible transition-all duration-300">
-        <div id="sidebar-overlay" class="absolute inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+        <div id="sidebar-overlay" class="absolute inset-0 bg-black/50 dark:bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
         
         <div id="sidebar-panel" class="absolute right-0 top-0 h-full w-full sm:w-[450px] md:w-[500px] bg-white dark:bg-dark border-l border-gray-200 dark:border-white/10 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300">
             
-            <div class="flex justify-between items-center p-5 border-b border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-darker">
+            <div class="flex justify-between items-center p-5 border-b border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-darker transition-colors duration-300">
                 <h3 class="text-xl font-semibold text-gold uppercase tracking-wide">Tu Proforma</h3>
-                <button id="btn-cart-close" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-2 rounded bg-gray-200 dark:bg-white/5 transition">
+                <button id="btn-cart-close" class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-2 rounded bg-gray-200 dark:bg-white/5 transition">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
 
             <div class="flex-1 overflow-y-auto p-5 custom-scrollbar">
                 
-                <div id="proforma-items" class="space-y-3 mb-6"></div>
+                <div id="proforma-items" class="space-y-3 mb-6">
+                    <p class="text-gray-500 text-sm text-center py-4">No hay platillos anexados aún.</p>
+                </div>
 
-                <div class="flex justify-between items-center py-4 border-y border-gray-200 dark:border-white/10 mb-6 bg-gray-100 dark:bg-darker/80 px-4 rounded-lg">
+                <div class="flex justify-between items-center py-4 border-y border-gray-200 dark:border-white/10 mb-6 bg-gray-100 dark:bg-darker/80 px-4 rounded-lg transition-colors duration-300">
                     <span class="text-gray-700 dark:text-gray-300 font-medium">Total Estimado:</span>
                     <span class="text-2xl text-gold font-bold">C$ <span id="proforma-total">0.00</span></span>
                 </div>
@@ -211,7 +211,7 @@
                         </div>
                         <div>
                             <label class="block text-gray-600 dark:text-gray-400 text-xs mb-1">Notas Especiales</label>
-                            <textarea id="inp-notas" rows="2" class="w-full bg-gray-50 dark:bg-darker border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white rounded-md p-3 focus:outline-none focus:border-gold transition"></textarea>
+                            <textarea id="inp-notas" rows="2" placeholder="Requerimientos, alergias..." class="w-full bg-gray-50 dark:bg-darker border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white rounded-md p-3 focus:outline-none focus:border-gold transition"></textarea>
                         </div>
                     </div>
 
@@ -231,19 +231,16 @@
         </div>
     </div>
 
-    <!-- ================= 6. FOOTER (FLEXBOX ALINEADO PERFECTAMENTE) ================= -->
+    <!-- ================= 6. FOOTER ================= -->
     <footer class="bg-white dark:bg-dark border-t border-gray-200 dark:border-white/10 pt-16 pb-8 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
             <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 mb-12">
                 
-                <!-- Izquierda -->
                 <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
                     <span class="font-vibes text-4xl text-gold block mb-4">Restaurante "El Lobito"</span>
                     <p class="text-gray-600 dark:text-gray-400 text-sm max-w-xs">Alta gastronomía en el corazón de León. Tradición, sabor y elegancia para tus eventos.</p>
                 </div>
                 
-                <!-- Centro -->
                 <div class="flex-1 flex flex-col items-center text-center">
                     <h4 class="font-semibold text-gold mb-4 uppercase text-sm flex items-center justify-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
@@ -255,7 +252,6 @@
                     </ul>
                 </div>
                 
-                <!-- Derecha -->
                 <div class="flex-1 flex flex-col items-center md:items-end text-center md:text-right">
                     <h4 class="font-semibold text-gold mb-4 uppercase text-sm flex items-center justify-center md:justify-end gap-2 w-full">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -266,17 +262,14 @@
                         <li><span class="text-gray-900 dark:text-white font-medium bg-gray-100 dark:bg-white/5 inline-block px-3 py-1 rounded-md border border-gray-200 dark:border-white/10 mt-1">11:00 AM - 10:00 PM</span></li>
                     </ul>
                 </div>
-                
             </div>
-            
             <div class="text-center text-gray-500 dark:text-gray-600 text-xs pt-6 border-t border-gray-200 dark:border-white/5">
                 &copy; 2026 Restaurante "El Lobito". Todos los derechos reservados.
             </div>
-            
         </div>
     </footer>
 
-    <!-- Lógica JavaScript -->
+    <!-- Lógica JS -->
     <script src="app.js"></script>
 </body>
 </html>
