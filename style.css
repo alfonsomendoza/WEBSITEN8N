@@ -19,7 +19,7 @@ body {
     background: #f1f1f1; 
 }
 .dark ::-webkit-scrollbar-track {
-    background: #050505; 
+    background: #000000; 
 }
 ::-webkit-scrollbar-thumb {
     background: #c1c1c1;
@@ -29,7 +29,7 @@ body {
     background: #2a2a2a;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #D4AF37; /* Dorado Restaurado */
+    background: #D4AF37; /* Tu Dorado */
 }
 
 /* Custom Scrollbar Sidebar */
@@ -63,7 +63,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
-/* Flecha Select Restaurada a Dorado (#D4AF37) */
+/* Flecha Select con color Dorado (#D4AF37) */
 select {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23D4AF37' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 1rem center;

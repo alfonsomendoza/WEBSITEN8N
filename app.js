@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dom.btnTelegram.addEventListener('click', procesarTelegram);
 });
 
-// 4. RENDERIZAR MENÚ (Restaurado a Dorado)
+// 4. RENDERIZAR MENÚ
 function renderizarMenu(categoria) {
     const items = bdMenu[categoria];
     dom.gridPlatos.innerHTML = '';
@@ -90,26 +90,26 @@ function renderizarMenu(categoria) {
         cantTemporales[plato.id] = 1; 
         
         const html = `
-            <div class="bg-white dark:bg-dark border border-gray-200 dark:border-white/5 rounded-xl overflow-hidden shadow-lg flex flex-col group h-full transition-colors duration-300">
+            <div class="bg-white dark:bg-dark border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden shadow-lg flex flex-col group h-full transition-colors duration-300">
                 
-                <div class="aspect-[4/3] w-full relative overflow-hidden bg-gray-100 dark:bg-darker flex items-center justify-center">
+                <div class="aspect-[4/3] w-full relative overflow-hidden bg-gray-100 dark:bg-black flex items-center justify-center">
                     <img 
                         src="${plato.img}" 
                         onerror="this.onerror=null;this.src='${IMG_FALLBACK}';" 
                         alt="${plato.nombre}" 
                         class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition duration-500"
                     >
-                    <div class="absolute top-3 right-3 bg-white/90 dark:bg-dark/80 backdrop-blur-sm text-gold font-semibold px-3 py-1 rounded-md text-sm shadow-md">
+                    <div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 backdrop-blur-sm text-gold font-semibold px-3 py-1 rounded-md text-sm shadow-md">
                         C$ ${plato.precio.toLocaleString()}
                     </div>
                 </div>
                 
                 <div class="p-5 flex flex-col flex-1">
-                    <h3 class="text-xl text-gray-900 dark:text-gold mb-2 leading-tight font-medium">${plato.nombre}</h3>
+                    <h3 class="text-xl text-gray-900 dark:text-white group-hover:text-gold dark:group-hover:text-gold mb-2 leading-tight font-medium transition-colors">${plato.nombre}</h3>
                     <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-1">${plato.desc}</p>
                     
                     <div class="mt-auto space-y-4">
-                        <div class="flex items-center justify-between bg-gray-50 dark:bg-darker rounded-lg border border-gray-200 dark:border-white/10 p-1">
+                        <div class="flex items-center justify-between bg-gray-50 dark:bg-black rounded-lg border border-gray-200 dark:border-white/10 p-1">
                             <button type="button" onclick="cambiarTemp('${plato.id}', -1)" class="w-12 h-10 flex items-center justify-center text-gray-500 dark:text-gray-300 bg-white dark:bg-white/5 rounded shadow-sm hover:bg-gray-100 dark:hover:bg-white/10 transition">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
                             </button>
@@ -119,7 +119,7 @@ function renderizarMenu(categoria) {
                             </button>
                         </div>
                         
-                        <button type="button" onclick="anexar('${categoria}', '${plato.id}')" class="w-full bg-gold/10 dark:bg-gold/10 border border-gold text-gold py-3.5 rounded-lg font-medium hover:bg-gold hover:text-white dark:hover:bg-gold dark:hover:text-darker transition shadow-sm">
+                        <button type="button" onclick="anexar('${categoria}', '${plato.id}')" class="w-full bg-gold/10 dark:bg-gold/10 border border-gold text-gold py-3.5 rounded-lg font-medium hover:bg-gold hover:text-white dark:hover:bg-gold dark:hover:text-black transition shadow-sm">
                             Anexar a la Proforma
                         </button>
                     </div>
@@ -166,7 +166,7 @@ function actualizarInterfaz() {
             totalArticulos += el.qty;
 
             const cardHTML = `
-                <div class="bg-gray-50 dark:bg-darker p-3.5 rounded-lg border border-gray-200 dark:border-white/5 flex flex-col transition-colors">
+                <div class="bg-gray-50 dark:bg-dark p-3.5 rounded-lg border border-gray-200 dark:border-white/5 flex flex-col transition-colors">
                     <div class="flex justify-between items-start mb-3">
                         <h5 class="text-sm font-medium text-gray-900 dark:text-white pr-2 leading-snug">${el.nombre}</h5>
                         <button type="button" onclick="eliminarPlato('${id}')" class="text-red-500 dark:text-red-400 p-1 -mt-1 -mr-1">
@@ -175,7 +175,7 @@ function actualizarInterfaz() {
                     </div>
                     <div class="flex justify-between items-center">
                         <span class="text-sm text-gold font-medium">C$ ${el.precio.toLocaleString()}</span>
-                        <div class="flex items-center bg-white dark:bg-dark rounded border border-gray-200 dark:border-white/10">
+                        <div class="flex items-center bg-white dark:bg-black rounded border border-gray-200 dark:border-white/10">
                             <button type="button" onclick="modificarCantidad('${id}', -1)" class="text-gray-500 dark:text-gray-400 px-3 py-1 text-lg hover:text-gray-900 dark:hover:text-white">-</button>
                             <span class="text-sm w-6 text-center text-gray-900 dark:text-white font-semibold">${el.qty}</span>
                             <button type="button" onclick="modificarCantidad('${id}', 1)" class="text-gold px-3 py-1 text-lg hover:text-gray-900 dark:hover:text-white">+</button>
