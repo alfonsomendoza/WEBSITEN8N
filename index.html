@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante "El Lobito" | León, Nicaragua</title>
+    
+    <!-- Importación de Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Great Vibes (Logo) y Poppins (Resto de la web) -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#111111',
+                        darker: '#080808',
+                        gold: '#D4AF37',
+                        goldHover: '#B5952F'
+                    },
+                    fontFamily: {
+                        vibes: ['"Great Vibes"', 'cursive'],
+                        poppins: ['"Poppins"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Enlace al CSS Local -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-poppins bg-darker text-gray-100 antialiased overflow-x-hidden">
+
+    <!-- ================= CABECERA (HEADER) ================= -->
+    <header class="fixed w-full z-40 bg-darker/95 backdrop-blur-md border-b border-white/10 transition-all duration-300 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Menú Hamburguesa (Móviles) -->
+                <div class="flex items-center md:hidden">
+                    <button id="btn-mobile-menu" class="text-gold p-2 focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Logotipo Caligráfico -->
+                <div class="flex-1 flex justify-center md:justify-start">
+                    <a href="#" class="font-vibes text-4xl sm:text-5xl text-gold tracking-wide drop-shadow-lg">
+                        Restaurante "El Lobito"
+                    </a>
+                </div>
+
+                <!-- Navegación Desktop -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-gray-300 hover:text-gold transition font-medium">Inicio</a>
+                    <a href="#nosotros" class="text-gray-300 hover:text-gold transition font-medium">Nosotros</a>
+                    <a href="#instalaciones" class="text-gray-300 hover:text-gold transition font-medium">Instalaciones</a>
+                    <a href="#menu-catalogo" class="text-gray-300 hover:text-gold transition font-medium">Cotizar Menú</a>
+                </nav>
+
+                <!-- Botón Carrito / Proforma Flotante -->
+                <div class="flex items-center ml-2 md:ml-6">
+                    <button id="btn-cart-open" class="flex items-center gap-2 bg-gold/10 border border-gold text-gold px-3 md:px-5 py-2 rounded-lg hover:bg-gold hover:text-darker transition duration-300 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                        <span class="hidden sm:inline font-medium">Cotización:</span>
+                        <span id="cart-count" class="font-bold text-sm bg-gold text-darker sm:bg-transparent sm:text-gold rounded-full px-2 py-0.5 sm:p-0">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dropdown Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark border-b border-white/10 shadow-xl">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="#inicio" class="block px-3 py-3 text-gray-300 hover:text-gold rounded-md text-center border-b border-white/5">Inicio</a>
+                <a href="#nosotros" class="block px-3 py-3 text-gray-300 hover:text-gold rounded-md text-center border-b border-white/5">Sobre Nosotros</a>
+                <a href="#instalaciones" class="block px-3 py-3 text-gray-300 hover:text-gold rounded-md text-center border-b border-white/5">Instalaciones</a>
+                <a href="#menu-catalogo" class="block px-3 py-3 text-gray-300 hover:text-gold rounded-md text-center">Ver Menú / Cotizar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= 2. SECCIÓN HERO ================= -->
+    <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center text-center pt-20">
+        <div class="absolute inset-0 bg-dark">
+            <img src="hero-bg.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544025162-831514bc501e?q=80&w=2000&auto=format&fit=crop';" alt="Fondo Hero" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-t from-darker via-darker/60 to-darker/90"></div>
+        </div>
+        
+        <div class="relative z-10 px-4 w-full max-w-4xl mx-auto flex flex-col items-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
+                Alta Gastronomía en León
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 font-light max-w-2xl px-4">
+                Tradición, sabor y elegancia. Diseña la proforma perfecta para tu próximo banquete o evento especial.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4">
+                <a href="#menu-catalogo" class="w-full sm:w-auto bg-gold text-darker font-semibold text-center px-8 py-4 rounded-lg hover:bg-goldHover transition shadow-lg">Ver Menú</a>
+                <button onclick="document.getElementById('btn-cart-open').click()" class="w-full sm:w-auto border border-gold text-gold font-semibold text-center px-8 py-4 rounded-lg hover:bg-gold/10 transition shadow-lg">Cotizar por Telegram</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 3. SOBRE NOSOTROS & INSTALACIONES ================= -->
+    <section id="nosotros" class="py-16 md:py-24 bg-darker">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="font-vibes text-4xl md:text-5xl text-gold mb-6">Nuestra Tradición</h2>
+            <div class="w-20 h-1 bg-gold mx-auto mb-8 rounded-full"></div>
+            <p class="text-gray-300 text-lg leading-relaxed">
+                Con una profunda pasión por la cocina, Restaurante "El Lobito" se ha convertido en un referente gastronómico en León, Nicaragua. Brindamos experiencias únicas combinando ingredientes de primera calidad, cortes selectos y un servicio inigualable.
+            </p>
+        </div>
+    </section>
+
+    <!-- Galería Exclusiva del Local (Fotos en la raíz) -->
+    <section id="instalaciones" class="py-16 bg-dark border-y border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl text-gold mb-3 font-semibold">Nuestras Instalaciones</h2>
+                <p class="text-gray-400 text-sm md:text-base">Descubre nuestro hermoso techo de madera y ambiente rústico.</p>
+            </div>
+            
+            <!-- NOTA PARA EL USUARIO: Las fotos 'local1.jpg' y 'local2.jpg' deben estar en esta misma carpeta -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="overflow-hidden rounded-xl shadow-2xl border border-white/10 group bg-darker aspect-video relative">
+                    <img src="local1.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800&auto=format&fit=crop';" alt="Restaurante El Lobito - Local 1" class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-2xl border border-white/10 group bg-darker aspect-video relative">
+                    <img src="local2.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=800&auto=format&fit=crop';" alt="Restaurante El Lobito - Local 2" class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 4. CATÁLOGO DE COMIDA (NUESTRA SELECCIÓN) ================= -->
+    <section id="menu-catalogo" class="py-16 md:py-24 bg-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl text-gold mb-4 font-semibold uppercase tracking-wide">Nuestra Selección</h2>
+                <p class="text-gray-400">Arme su proforma seleccionando los platillos de nuestro catálogo.</p>
+            </div>
+
+            <!-- Menú Dropdown -->
+            <div class="max-w-md mx-auto mb-12">
+                <label for="menu-dropdown" class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide text-center">Selecciona el Tipo de Menú / Servicio</label>
+                <div class="relative">
+                    <select id="menu-dropdown" class="block w-full pl-4 pr-10 py-4 text-base md:text-lg bg-dark border border-gold/50 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-gold appearance-none cursor-pointer shadow-lg font-medium text-center">
+                        <option value="carnes">Especiales de Carnes</option>
+                        <option value="mariscos">Mariscos y Marisconas</option>
+                        <option value="antojitos">Antojitos e Individuales</option>
+                        <option value="buffet">Servicio de Buffet para Eventos</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Grid de Platos generados por JS -->
+            <div id="platos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Se inyectan las tarjetas desde app.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 5. SIDEBAR / MODAL DE PROFORMA ================= -->
+    <div id="sidebar-container" class="fixed inset-0 z-50 invisible transition-all duration-300">
+        <!-- Overlay oscuro -->
+        <div id="sidebar-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+        
+        <!-- Panel lateral -->
+        <div id="sidebar-panel" class="absolute right-0 top-0 h-full w-full sm:w-[450px] md:w-[500px] bg-dark border-l border-white/10 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300">
+            
+            <div class="flex justify-between items-center p-5 border-b border-white/10 bg-darker">
+                <h3 class="text-xl font-semibold text-gold uppercase tracking-wide">Tu Proforma</h3>
+                <button id="btn-cart-close" class="text-gray-400 hover:text-white p-2 rounded bg-white/5 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <!-- Área desplazable (Lista + Formulario) -->
+            <div class="flex-1 overflow-y-auto p-5 custom-scrollbar">
+                
+                <!-- Lista de Ítems Seleccionados -->
+                <div id="proforma-items" class="space-y-3 mb-6">
+                    <p class="text-gray-500 text-sm text-center py-4">No hay platillos anexados aún.</p>
+                </div>
+
+                <!-- Total Estimado -->
+                <div class="flex justify-between items-center py-4 border-y border-white/10 mb-6 bg-darker/80 px-4 rounded-lg">
+                    <span class="text-gray-300 font-medium">Total Estimado:</span>
+                    <span class="text-2xl text-gold font-bold">C$ <span id="proforma-total">0.00</span></span>
+                </div>
+
+                <!-- Formulario de Contacto -->
+                <form id="form-contacto" class="space-y-4">
+                    <h4 class="text-gold uppercase tracking-wider text-sm font-semibold mb-3 border-b border-gold/30 pb-2">Datos para Cotización</h4>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-400 text-xs mb-1">Nombre / Empresa *</label>
+                            <input type="text" id="inp-nombre" required class="w-full bg-darker border border-white/10 text-white rounded-md p-3 focus:outline-none focus:border-gold transition">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-xs mb-1">Correo Electrónico *</label>
+                            <input type="email" id="inp-correo" required placeholder="tu@correo.com" class="w-full bg-darker border border-white/10 text-white rounded-md p-3 focus:outline-none focus:border-gold transition">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-400 text-xs mb-1">Teléfono / WhatsApp *</label>
+                                <input type="tel" id="inp-tel" required class="w-full bg-darker border border-white/10 text-white rounded-md p-3 focus:outline-none focus:border-gold transition">
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 text-xs mb-1">Fecha del Evento *</label>
+                                <input type="date" id="inp-fecha" required class="w-full bg-darker border border-white/10 text-gray-300 rounded-md p-3 focus:outline-none focus:border-gold transition [color-scheme:dark]">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 text-xs mb-1">Notas Especiales</label>
+                            <textarea id="inp-notas" rows="2" placeholder="Requerimientos, alergias, hora..." class="w-full bg-darker border border-white/10 text-white rounded-md p-3 focus:outline-none focus:border-gold transition"></textarea>
+                        </div>
+                    </div>
+
+                    <div id="status-msg" class="text-sm text-center font-medium py-3 rounded-lg hidden mt-4"></div>
+
+                    <!-- Botones de Acción -->
+                    <div class="pt-6 space-y-3">
+                        <button type="submit" id="btn-n8n" class="w-full bg-gold text-darker font-bold py-3.5 rounded-lg hover:bg-goldHover transition flex justify-center items-center shadow-lg">
+                            Enviar Solicitud a n8n
+                        </button>
+                        <button type="button" id="btn-telegram" class="w-full bg-[#0088cc] text-white font-bold py-3.5 rounded-lg hover:bg-[#0077b3] transition flex justify-center items-center gap-2 shadow-lg">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg>
+                            Cotizar vía Telegram
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 6. FOOTER ================= -->
+    <footer class="bg-darker border-t border-white/5 pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left mb-8">
+            <div>
+                <span class="font-vibes text-4xl text-gold block mb-3">Restaurante "El Lobito"</span>
+                <p class="text-gray-400 text-sm">Alta gastronomía en el corazón de León. Tradición, sabor y elegancia para tus eventos.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-gold mb-3 uppercase tracking-wide text-sm">Contacto</h4>
+                <ul class="text-gray-400 text-sm space-y-2">
+                    <li>📍 Gasolinera Uno Sutiaba 4c al sur, 20vrs al Este.<br>León, Nicaragua.</li>
+                    <li>📞 +505 5815-8308 / 2311-4146</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-gold mb-3 uppercase tracking-wide text-sm">Horarios</h4>
+                <ul class="text-gray-400 text-sm space-y-2">
+                    <li>Lunes a Domingo</li>
+                    <li>11:00 AM - 10:00 PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center text-gray-600 text-xs border-t border-white/5 pt-6">
+            &copy; 2026 Restaurante "El Lobito". Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Archivo JS Lógico -->
+    <script src="app.js"></script>
+</body>
+</html>
