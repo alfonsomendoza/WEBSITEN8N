@@ -16,14 +16,14 @@
             theme: {
                 extend: {
                     colors: {
-                        dark: '#1e293b',       /* Azul noche elegante (Slate 800) */
-                        darker: '#0f172a',     /* Azul noche profundo (Slate 900) */
+                        dark: '#1e293b',       /* Slate 800 */
+                        darker: '#0f172a',     /* Slate 900 */
                         metal: {
                             DEFAULT: '#5783bc', /* Havelock Blue (Principal) */
-                            hover: '#6a9cde',   /* Little Boy Blue (Hover botones) */
-                            dark: '#3e5f8a',    /* Delft (Bordes o sombras) */
-                            light: '#a0c5f7',   /* Baby Blue Eyes (Textos en modo oscuro) */
-                            ice: '#cadffb'      /* lightsteelblue1 (Degradados claros) */
+                            hover: '#6a9cde',   /* Little Boy Blue (Hover) */
+                            dark: '#3e5f8a',    /* Delft (Tonos oscuros) */
+                            light: '#a0c5f7',   /* Baby Blue Eyes */
+                            ice: '#cadffb'      /* lightsteelblue1 */
                         }
                     },
                     fontFamily: {
@@ -37,87 +37,91 @@
 
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-poppins bg-gray-50 dark:bg-darker text-gray-800 dark:text-gray-100 antialiased overflow-x-hidden transition-colors duration-300">
+<body class="font-poppins bg-gray-50 dark:bg-darker text-gray-800 dark:text-gray-100 antialiased overflow-x-hidden transition-colors duration-300 selection:bg-metal selection:text-white">
 
-    <!-- ================= CABECERA (HEADER) ================= -->
-    <header class="fixed w-full z-40 bg-white/90 dark:bg-darker/95 backdrop-blur-md border-b border-gray-200 dark:border-metal-dark/30 transition-all duration-300 shadow-sm dark:shadow-md">
+    <!-- ================= CABECERA (HEADER AZUL METÁLICO) ================= -->
+    <!-- El Header ahora es azul metálico en modo claro, y azul oscuro (delft) en modo oscuro -->
+    <header class="fixed w-full z-40 bg-metal/95 dark:bg-metal-dark/95 backdrop-blur-md border-b border-metal-dark/20 dark:border-white/10 transition-all duration-300 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
                 <div class="flex items-center md:hidden">
-                    <button id="btn-mobile-menu" class="text-metal p-2 focus:outline-none">
+                    <button id="btn-mobile-menu" class="text-white p-2 focus:outline-none">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
                 </div>
 
                 <div class="flex-1 flex justify-center md:justify-start">
-                    <a href="#" class="font-vibes text-4xl sm:text-5xl text-metal dark:text-metal-light tracking-wide drop-shadow-md">
+                    <!-- Letras blancas para que resalten sobre el azul -->
+                    <a href="#" class="font-vibes text-4xl sm:text-5xl text-white tracking-wide drop-shadow-md">
                         Restaurante "El Lobito"
                     </a>
                 </div>
 
                 <nav class="hidden md:flex space-x-8 items-center">
-                    <a href="#inicio" class="text-gray-600 dark:text-gray-300 hover:text-metal dark:hover:text-metal-light transition font-medium">Inicio</a>
-                    <a href="#nosotros" class="text-gray-600 dark:text-gray-300 hover:text-metal dark:hover:text-metal-light transition font-medium">Nosotros</a>
-                    <a href="#instalaciones" class="text-gray-600 dark:text-gray-300 hover:text-metal dark:hover:text-metal-light transition font-medium">Instalaciones</a>
-                    <a href="#menu-catalogo" class="text-gray-600 dark:text-gray-300 hover:text-metal dark:hover:text-metal-light transition font-medium">Cotizar Menú</a>
+                    <a href="#inicio" class="text-white/90 hover:text-white hover:drop-shadow-md transition font-medium">Inicio</a>
+                    <a href="#nosotros" class="text-white/90 hover:text-white hover:drop-shadow-md transition font-medium">Nosotros</a>
+                    <a href="#instalaciones" class="text-white/90 hover:text-white hover:drop-shadow-md transition font-medium">Instalaciones</a>
+                    <a href="#menu-catalogo" class="text-white/90 hover:text-white hover:drop-shadow-md transition font-medium">Cotizar Menú</a>
                 </nav>
 
-                <!-- Botones Acciones -->
                 <div class="flex items-center ml-2 md:ml-6 gap-2 sm:gap-4">
                     
-                    <!-- Botón Light/Dark Mode -->
-                    <button id="btn-theme-toggle" class="p-2 rounded-full text-gray-500 dark:text-metal-light hover:bg-metal-ice/30 dark:hover:bg-metal-dark/30 transition focus:outline-none">
+                    <button id="btn-theme-toggle" class="p-2 rounded-full text-white hover:bg-white/20 transition focus:outline-none">
                         <svg id="icon-sun" class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                         <svg id="icon-moon" class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                     </button>
 
-                    <!-- Botón Carrito -->
-                    <button id="btn-cart-open" class="flex items-center gap-2 bg-metal-ice/40 dark:bg-metal/10 border border-metal text-metal dark:text-metal-light px-3 md:px-5 py-2 rounded-lg hover:bg-metal hover:text-white dark:hover:bg-metal transition duration-300 shadow-[0_0_15px_rgba(87,131,188,0.2)] focus:outline-none">
+                    <!-- Botón Carrito (Transparente con borde blanco) -->
+                    <button id="btn-cart-open" class="flex items-center gap-2 bg-white/10 border border-white text-white px-3 md:px-5 py-2 rounded-lg hover:bg-white hover:text-metal transition duration-300 shadow-md focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
                         <span class="hidden sm:inline font-medium">Cotización:</span>
-                        <span id="cart-count" class="font-bold text-sm bg-metal text-white sm:bg-transparent sm:text-metal dark:sm:text-metal-light rounded-full px-2 py-0.5 sm:p-0">0</span>
+                        <span id="cart-count" class="font-bold text-sm bg-white text-metal sm:bg-transparent sm:text-white rounded-full px-2 py-0.5 sm:p-0">0</span>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-dark border-b border-gray-200 dark:border-metal-dark/30 shadow-xl transition-colors duration-300">
+        <div id="mobile-menu" class="hidden md:hidden bg-metal dark:bg-metal-dark shadow-xl transition-colors duration-300">
             <div class="px-4 pt-2 pb-4 space-y-2">
-                <a href="#inicio" class="block px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-metal dark:hover:text-metal-light rounded-md text-center border-b border-gray-100 dark:border-white/5">Inicio</a>
-                <a href="#nosotros" class="block px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-metal dark:hover:text-metal-light rounded-md text-center border-b border-gray-100 dark:border-white/5">Sobre Nosotros</a>
-                <a href="#instalaciones" class="block px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-metal dark:hover:text-metal-light rounded-md text-center border-b border-gray-100 dark:border-white/5">Instalaciones</a>
-                <a href="#menu-catalogo" class="block px-3 py-3 text-gray-700 dark:text-gray-300 hover:text-metal dark:hover:text-metal-light rounded-md text-center">Ver Menú / Cotizar</a>
+                <a href="#inicio" class="block px-3 py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-md text-center border-b border-white/10">Inicio</a>
+                <a href="#nosotros" class="block px-3 py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-md text-center border-b border-white/10">Sobre Nosotros</a>
+                <a href="#instalaciones" class="block px-3 py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-md text-center border-b border-white/10">Instalaciones</a>
+                <a href="#menu-catalogo" class="block px-3 py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-md text-center">Ver Menú / Cotizar</a>
             </div>
         </div>
     </header>
 
-    <!-- ================= 2. SECCIÓN HERO ================= -->
+    <!-- ================= 2. SECCIÓN HERO (DEGRADADO CORRECTO AZUL A BLANCO) ================= -->
     <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center text-center pt-20">
-        <div class="absolute inset-0 bg-darker">
+        <div class="absolute inset-0 bg-metal dark:bg-darker">
             <img src="hero-bg.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544025162-831514bc501e?q=80&w=2000&auto=format&fit=crop';" alt="Fondo Hero" class="w-full h-full object-cover opacity-20 dark:opacity-30">
-            <!-- Degradado: Se funde en Ice (Blanco azulado) en modo claro, y Darker (Azul noche) en dark mode -->
-            <div class="absolute inset-0 bg-gradient-to-t from-metal-ice/40 via-transparent to-white/80 dark:from-darker dark:via-darker/70 dark:to-darker/90 transition-colors duration-300"></div>
+            
+            <!-- EL DEGRADADO CLAVE: De Azul Metálico arriba, hacia Gris Claro/Blanco abajo -->
+            <!-- Modo Claro: from-metal (arriba) a gray-50 (abajo) -->
+            <!-- Modo Oscuro: from-metal-dark (arriba) a darker (abajo) -->
+            <div class="absolute inset-0 bg-gradient-to-b from-metal via-metal-light/80 to-gray-50 dark:from-metal-dark dark:via-dark/80 dark:to-darker transition-colors duration-300"></div>
         </div>
         
-        <div class="relative z-10 px-4 w-full max-w-4xl mx-auto flex flex-col items-center">
+        <div class="relative z-10 px-4 w-full max-w-4xl mx-auto flex flex-col items-center mt-10">
+            <!-- Texto principal ahora es blanco o azul oscuro para contrastar con el fondo -->
             <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight drop-shadow-xl dark:drop-shadow-2xl">
                 Alta Gastronomía en León
             </h1>
-            <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10 font-medium dark:font-light max-w-2xl px-4">
+            <p class="text-lg md:text-xl text-gray-800 dark:text-gray-300 mb-10 font-medium dark:font-light max-w-2xl px-4">
                 Tradición, sabor y elegancia. Diseña la proforma perfecta para tu próximo banquete o evento especial.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4">
                 <a href="#menu-catalogo" class="w-full sm:w-auto bg-metal text-white font-semibold text-center px-8 py-4 rounded-lg hover:bg-metal-hover transition shadow-lg">Ver Menú</a>
-                <button onclick="document.getElementById('btn-cart-open').click()" class="w-full sm:w-auto border border-metal text-metal dark:text-metal-light font-semibold text-center px-8 py-4 rounded-lg bg-white/50 dark:bg-black/20 hover:bg-metal-ice/50 dark:hover:bg-metal-dark/50 transition shadow-lg backdrop-blur-sm">Cotizar por Telegram</button>
+                <button onclick="document.getElementById('btn-cart-open').click()" class="w-full sm:w-auto border-2 border-metal text-metal dark:text-metal-light font-semibold text-center px-8 py-4 rounded-lg bg-white/50 dark:bg-black/20 hover:bg-metal/10 transition shadow-lg backdrop-blur-sm">Cotizar por Telegram</button>
             </div>
         </div>
     </section>
 
     <!-- ================= 3. SOBRE NOSOTROS ================= -->
-    <section id="nosotros" class="py-16 md:py-24 bg-white dark:bg-darker transition-colors duration-300">
+    <section id="nosotros" class="py-16 md:py-24 bg-gray-50 dark:bg-darker transition-colors duration-300">
         <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="font-vibes text-4xl md:text-5xl text-metal dark:text-metal-light mb-6">Nuestra Tradición</h2>
+            <h2 class="font-vibes text-4xl md:text-5xl text-metal mb-6">Nuestra Tradición</h2>
             <div class="w-20 h-1 bg-metal mx-auto mb-8 rounded-full"></div>
             <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
                 Con una profunda pasión por la cocina, Restaurante "El Lobito" se ha convertido en un referente gastronómico en León, Nicaragua. Brindamos experiencias únicas combinando ingredientes de primera calidad, cortes selectos y un servicio inigualable.
@@ -126,18 +130,18 @@
     </section>
 
     <!-- Galería Local -->
-    <section id="instalaciones" class="py-16 bg-gray-50 dark:bg-dark border-y border-gray-200 dark:border-metal-dark/20 transition-colors duration-300">
+    <section id="instalaciones" class="py-16 bg-white dark:bg-dark border-y border-gray-200 dark:border-white/5 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl text-metal mb-3 font-semibold">Nuestras Instalaciones</h2>
+                <h2 class="text-3xl md:text-4xl text-metal dark:text-metal-light mb-3 font-semibold">Nuestras Instalaciones</h2>
                 <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base">Descubre nuestro hermoso techo de madera y ambiente rústico.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="overflow-hidden rounded-xl shadow-xl dark:shadow-2xl border border-gray-200 dark:border-metal-dark/30 group bg-gray-100 dark:bg-darker aspect-video relative">
+                <div class="overflow-hidden rounded-xl shadow-xl dark:shadow-2xl border border-gray-200 dark:border-white/10 group bg-gray-100 dark:bg-darker aspect-video relative">
                     <img src="local1.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800&auto=format&fit=crop';" alt="Local 1" class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition duration-500">
                 </div>
-                <div class="overflow-hidden rounded-xl shadow-xl dark:shadow-2xl border border-gray-200 dark:border-metal-dark/30 group bg-gray-100 dark:bg-darker aspect-video relative">
+                <div class="overflow-hidden rounded-xl shadow-xl dark:shadow-2xl border border-gray-200 dark:border-white/10 group bg-gray-100 dark:bg-darker aspect-video relative">
                     <img src="local2.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=800&auto=format&fit=crop';" alt="Local 2" class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition duration-500">
                 </div>
             </div>
@@ -145,7 +149,7 @@
     </section>
 
     <!-- ================= 4. CATÁLOGO ================= -->
-    <section id="menu-catalogo" class="py-16 md:py-24 bg-white dark:bg-darker transition-colors duration-300">
+    <section id="menu-catalogo" class="py-16 md:py-24 bg-gray-50 dark:bg-darker transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
                 <h2 class="text-3xl md:text-4xl text-metal mb-4 font-semibold uppercase tracking-wide">Nuestra Selección</h2>
@@ -156,7 +160,7 @@
             <div class="max-w-md mx-auto mb-12">
                 <label for="menu-dropdown" class="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide text-center">Selecciona el Tipo de Menú / Servicio</label>
                 <div class="relative">
-                    <select id="menu-dropdown" class="block w-full pl-4 pr-10 py-4 text-base md:text-lg bg-gray-50 dark:bg-dark border border-metal/50 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-metal appearance-none cursor-pointer shadow-lg font-medium text-center transition-colors duration-300">
+                    <select id="menu-dropdown" class="block w-full pl-4 pr-10 py-4 text-base md:text-lg bg-white dark:bg-dark border-2 border-metal/50 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-metal appearance-none cursor-pointer shadow-md font-medium text-center transition-colors duration-300">
                         <option value="carnes">Especiales de Carnes</option>
                         <option value="mariscos">Mariscos y Marisconas</option>
                         <option value="antojitos">Antojitos e Individuales</option>
@@ -175,11 +179,11 @@
     <div id="sidebar-container" class="fixed inset-0 z-50 invisible transition-all duration-300">
         <div id="sidebar-overlay" class="absolute inset-0 bg-metal-dark/40 dark:bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
         
-        <div id="sidebar-panel" class="absolute right-0 top-0 h-full w-full sm:w-[450px] md:w-[500px] bg-white dark:bg-dark border-l border-gray-200 dark:border-metal-dark/30 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300">
+        <div id="sidebar-panel" class="absolute right-0 top-0 h-full w-full sm:w-[450px] md:w-[500px] bg-white dark:bg-dark border-l border-gray-200 dark:border-white/10 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300">
             
-            <div class="flex justify-between items-center p-5 border-b border-gray-200 dark:border-metal-dark/30 bg-gray-50 dark:bg-darker transition-colors duration-300">
+            <div class="flex justify-between items-center p-5 border-b border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-darker transition-colors duration-300">
                 <h3 class="text-xl font-semibold text-metal uppercase tracking-wide">Tu Proforma</h3>
-                <button id="btn-cart-close" class="text-gray-500 dark:text-gray-400 hover:text-metal dark:hover:text-metal-light p-2 rounded bg-gray-200 dark:bg-white/5 transition">
+                <button id="btn-cart-close" class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-2 rounded bg-gray-200 dark:bg-white/5 transition">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
@@ -240,6 +244,7 @@
     <!-- ================= 6. FOOTER ================= -->
     <footer class="bg-white dark:bg-dark border-t border-gray-200 dark:border-white/10 pt-16 pb-8 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
             <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 mb-12">
                 
                 <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
@@ -265,13 +270,15 @@
                     </h4>
                     <ul class="text-gray-600 dark:text-gray-400 text-sm space-y-2 w-full">
                         <li>Lunes a Domingo</li>
-                        <li><span class="text-gray-900 dark:text-white font-medium bg-metal-ice/30 dark:bg-white/5 inline-block px-3 py-1 rounded-md border border-gray-200 dark:border-white/10 mt-1">11:00 AM - 10:00 PM</span></li>
+                        <li><span class="text-gray-900 dark:text-white font-medium bg-metal-ice/50 dark:bg-white/5 inline-block px-3 py-1 rounded-md border border-gray-200 dark:border-white/10 mt-1">11:00 AM - 10:00 PM</span></li>
                     </ul>
                 </div>
             </div>
+            
             <div class="text-center text-gray-500 dark:text-gray-600 text-xs pt-6 border-t border-gray-200 dark:border-white/5">
                 &copy; 2026 Restaurante "El Lobito". Todos los derechos reservados.
             </div>
+            
         </div>
     </footer>
 
