@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dom.btnTelegram.addEventListener('click', procesarTelegram);
 });
 
-// 4. RENDERIZAR MENÚ
+// 4. RENDERIZAR MENÚ (Restaurado a Dorado)
 function renderizarMenu(categoria) {
     const items = bdMenu[categoria];
     dom.gridPlatos.innerHTML = '';
@@ -90,7 +90,7 @@ function renderizarMenu(categoria) {
         cantTemporales[plato.id] = 1; 
         
         const html = `
-            <div class="bg-white dark:bg-dark border border-gray-200 dark:border-metal-dark/30 rounded-xl overflow-hidden shadow-lg flex flex-col group h-full transition-colors duration-300">
+            <div class="bg-white dark:bg-dark border border-gray-200 dark:border-white/5 rounded-xl overflow-hidden shadow-lg flex flex-col group h-full transition-colors duration-300">
                 
                 <div class="aspect-[4/3] w-full relative overflow-hidden bg-gray-100 dark:bg-darker flex items-center justify-center">
                     <img 
@@ -99,13 +99,13 @@ function renderizarMenu(categoria) {
                         alt="${plato.nombre}" 
                         class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition duration-500"
                     >
-                    <div class="absolute top-3 right-3 bg-white/90 dark:bg-dark/80 backdrop-blur-sm text-metal font-semibold px-3 py-1 rounded-md text-sm shadow-md">
+                    <div class="absolute top-3 right-3 bg-white/90 dark:bg-dark/80 backdrop-blur-sm text-gold font-semibold px-3 py-1 rounded-md text-sm shadow-md">
                         C$ ${plato.precio.toLocaleString()}
                     </div>
                 </div>
                 
                 <div class="p-5 flex flex-col flex-1">
-                    <h3 class="text-xl text-gray-900 dark:text-metal-light mb-2 leading-tight font-medium">${plato.nombre}</h3>
+                    <h3 class="text-xl text-gray-900 dark:text-gold mb-2 leading-tight font-medium">${plato.nombre}</h3>
                     <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-1">${plato.desc}</p>
                     
                     <div class="mt-auto space-y-4">
@@ -114,12 +114,12 @@ function renderizarMenu(categoria) {
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
                             </button>
                             <span id="tmp-${plato.id}" class="text-lg font-semibold w-8 text-center text-gray-900 dark:text-white">1</span>
-                            <button type="button" onclick="cambiarTemp('${plato.id}', 1)" class="w-12 h-10 flex items-center justify-center text-metal dark:text-metal-light bg-white dark:bg-white/5 rounded shadow-sm hover:bg-gray-100 dark:hover:bg-white/10 transition">
+                            <button type="button" onclick="cambiarTemp('${plato.id}', 1)" class="w-12 h-10 flex items-center justify-center text-gold dark:text-gold bg-white dark:bg-white/5 rounded shadow-sm hover:bg-gray-100 dark:hover:bg-white/10 transition">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                             </button>
                         </div>
                         
-                        <button type="button" onclick="anexar('${categoria}', '${plato.id}')" class="w-full bg-metal-ice/30 dark:bg-metal/10 border border-metal text-metal dark:text-metal-light py-3.5 rounded-lg font-medium hover:bg-metal hover:text-white dark:hover:bg-metal dark:hover:text-white transition shadow-sm">
+                        <button type="button" onclick="anexar('${categoria}', '${plato.id}')" class="w-full bg-gold/10 dark:bg-gold/10 border border-gold text-gold py-3.5 rounded-lg font-medium hover:bg-gold hover:text-white dark:hover:bg-gold dark:hover:text-darker transition shadow-sm">
                             Anexar a la Proforma
                         </button>
                     </div>
@@ -174,11 +174,11 @@ function actualizarInterfaz() {
                         </button>
                     </div>
                     <div class="flex justify-between items-center">
-                        <span class="text-sm text-metal font-medium">C$ ${el.precio.toLocaleString()}</span>
+                        <span class="text-sm text-gold font-medium">C$ ${el.precio.toLocaleString()}</span>
                         <div class="flex items-center bg-white dark:bg-dark rounded border border-gray-200 dark:border-white/10">
                             <button type="button" onclick="modificarCantidad('${id}', -1)" class="text-gray-500 dark:text-gray-400 px-3 py-1 text-lg hover:text-gray-900 dark:hover:text-white">-</button>
                             <span class="text-sm w-6 text-center text-gray-900 dark:text-white font-semibold">${el.qty}</span>
-                            <button type="button" onclick="modificarCantidad('${id}', 1)" class="text-metal px-3 py-1 text-lg hover:text-gray-900 dark:hover:text-white">+</button>
+                            <button type="button" onclick="modificarCantidad('${id}', 1)" class="text-gold px-3 py-1 text-lg hover:text-gray-900 dark:hover:text-white">+</button>
                         </div>
                     </div>
                 </div>
